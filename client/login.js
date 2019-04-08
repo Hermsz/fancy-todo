@@ -45,7 +45,6 @@ function login() {
   .done(data => {
     Swal.fire({
       title: 'Success Login',
-      position: 'top-end',
       type: 'success',
       showConfirmButton: false,
       timer: 1500
@@ -59,6 +58,11 @@ function login() {
     isLogin(true)
   })
   .fail(err => {
+    Swal.fire({
+      title: 'You have to enter your login details',
+      type: 'warning',
+      showCancelButton: true,
+    })
     console.log(err)
   })
 }
@@ -76,7 +80,7 @@ function signOut() {
     if(selected.value) {
       Swal.fire({
         type: 'success',
-        title: 'Log out is success',
+        title: 'Log out success',
         showConfirmButton: false,
         timer: 1500
     })
